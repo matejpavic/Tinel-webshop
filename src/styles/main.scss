@@ -1,0 +1,143 @@
+@import "./variables";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+  top: 0;
+}
+
+.pushRight {
+  padding-left: 20%;
+}
+
+.oneLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $primary-color;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+}
+
+.logo {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 5%;
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 15%;
+
+  span {
+    padding-left: 5%;
+    white-space: nowrap;
+    font-weight: map-get($font-weights, bold);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobileSize) {
+    @content;
+  }
+}
+
+@mixin biggerScreen {
+  @media (min-width: $bigScreen) {
+    @content;
+  }
+}
+
+.containerPage {
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+  height: 85vh;
+
+  .workShopsList {
+    background-color: blueviolet;
+    width: 70%;
+    //padding-bottom: 80%;
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+
+    h6 {
+      font-family: Livvic;
+      font-weight: 700;
+      color: darkgrey;
+    }
+
+    img {
+      padding-right: 10px;
+      width: 15px;
+    }
+
+    span {
+      color: black;
+      font-weight: bold;
+    }
+
+    .pushAll {
+      padding-left: 25px;
+    }
+  }
+
+  .dropdownMenu {
+    display: none;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    .filter {
+      display: none;
+    }
+    .dropdownMenu {
+      position: initial;
+      display: flex;
+      background-color: red;
+      height: 5vh;
+      justify-content: center;
+      color: #0097cc;
+      div {
+        padding-left: 5px;
+      }
+    }
+    .workShopsList {
+      width: 100%;
+      height: 80vh;
+    }
+  }
+}
+
+.footer {
+  background-color: #f2f2f2;
+  height: 5vh;
+  img {
+    display: flex;
+    width: 10%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2vh;
+    padding-left: 5%;
+  }
+}

@@ -1,0 +1,175 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+  top: 0;
+}
+
+.pushRight {
+  padding-left: 20%;
+}
+
+.oneLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #ffce25;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+}
+
+.logo {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 5%;
+}
+
+.cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 15%;
+}
+
+.cart span {
+  padding-left: 5%;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.containerPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: blue;
+  height: 85vh;
+}
+
+.containerPage .workShopsList {
+  background-color: blueviolet;
+  width: 70%;
+}
+
+.containerPage .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  width: 30%;
+}
+
+.containerPage .filter h6 {
+  font-family: Livvic;
+  font-weight: 700;
+  color: darkgrey;
+}
+
+.containerPage .filter img {
+  padding-right: 10px;
+  width: 15px;
+}
+
+.containerPage .filter span {
+  color: black;
+  font-weight: bold;
+}
+
+.containerPage .filter .pushAll {
+  padding-left: 25px;
+}
+
+.containerPage .dropdownMenu {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .containerPage {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .containerPage .filter {
+    display: none;
+  }
+  .containerPage .dropdownMenu {
+    position: initial;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: red;
+    height: 5vh;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #0097cc;
+  }
+  .containerPage .dropdownMenu div {
+    padding-left: 5px;
+  }
+  .containerPage .workShopsList {
+    width: 100%;
+    height: 80vh;
+  }
+}
+
+.footer {
+  background-color: #f2f2f2;
+  height: 5vh;
+}
+
+.footer img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 10%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 2vh;
+  padding-left: 5%;
+}
+/*# sourceMappingURL=main.css.map */
