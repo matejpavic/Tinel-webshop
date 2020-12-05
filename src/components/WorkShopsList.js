@@ -1,9 +1,9 @@
-import React from 'react';
+import Card from './Card';
 
-const WorkShopsList = () => {
+const WorkShopsList = ({workshops, displayed}) => {
     return (
         <div className='workShopsList'>
-            Workshop List
+            <Card workshops = {workshops} displayed = {displayed}/>
         </div>
     );
 }

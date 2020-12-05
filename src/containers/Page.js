@@ -1,13 +1,13 @@
 import Filter from '../components/Filter';
-import WorkShopsList from '../components/WorkShopsList';
 import DropdownMenu from '../components/DropdownMenu';
+import Main from '../components/Main';
 
-function Page() {
+function Page({workshops, displayed, handleDisplayed}) {
     return (
         <div className='containerPage' >
            <Filter />
            <DropdownMenu />
-           <WorkShopsList />
+           <Main workshops = {workshops} displayed = {displayed} handleDisplayed = {handleDisplayed} />
         </div>
     );
 }
