@@ -1,14 +1,20 @@
 @import "./variables";
 
 html,
-body {
+body,
+.App {
+  width: 100%;
   height: 100%;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .App {
   text-align: center;
-  height: 100%;
   top: 0;
 }
 
@@ -64,19 +70,16 @@ body {
 }
 
 .containerPage {
+  margin-top: 5vh;
   display: flex;
   flex-direction: row;
   // background-color: blue;
-  min-height: 85vh;
+  min-height: 80vh;
 
   .main {
     display: flex;
     flex-direction: column;
     width: 80%;
-  }
-
-  ::-webkit-scrollbar {
-    display: none;
   }
 
   .listHeading {
@@ -87,13 +90,14 @@ body {
     align-items: flex-start;
     font-weight: bold;
     padding-left: 2%;
+    margin-bottom: 3%;
 
     &__title {
-      font-size: 1.5em;
+      font-size: 1.7em;
     }
 
     &__displayed {
-      font-size: 0.6em;
+      font-size: 0.7em;
       color: darkgray;
 
       span {
@@ -105,6 +109,7 @@ body {
   .workShopsList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 0.5fr));
+    max-width: 910px;
     // background-color: rgb(207, 190, 223);
     width: 100%;
 
@@ -113,7 +118,7 @@ body {
       flex-direction: column;
       align-items: center;
       width: 90%;
-      height: 20em;
+      height: 23em;
       border: 1px solid rgba(0, 0, 0, 0.1);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 5%;
@@ -183,6 +188,7 @@ body {
 
           &:hover {
             background-color: lighten($color: $primary-color, $amount: 10%);
+            cursor: pointer;
           }
 
           div {
@@ -228,10 +234,18 @@ body {
   }
 
   .loadMore {
-    align-items: flex-end;
     display: flex;
     justify-content: flex-end;
-    padding-right: 15%;
+
+    &__link {
+      padding-right: 15%;
+      text-decoration: underline;
+      cursor: pointer;
+      background: white;
+      border: none;
+      text-decoration-color: #0097cc;
+      font-weight: bold;
+    }
   }
 
   @include mobile {

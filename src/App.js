@@ -2,7 +2,7 @@ import './styles/main.css';
 import Page from './containers/Page';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import { Component, useEffect, useRef, useState } from 'react';
+import { Component } from 'react';
 
 class App extends Component {
   constructor() {
@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       workshops: [],
       displayed: 9,
+      loadLink: true,
     }
   }
 
@@ -22,13 +23,14 @@ class App extends Component {
 
   handleDisplayed = () => {
     this.setState({displayed: this.state.workshops.length});
+    this.setState({loadLink: false});
   } 
   render() {
-    const {workshops, displayed} = this.state;
+    const {workshops, displayed, loadLink} = this.state;
     return (
       <div className='App'>
         <Header />
-        <Page workshops = {workshops} displayed={displayed} handleDisplayed={this.handleDisplayed}  />
+        <Page workshops = {workshops} displayed={displayed} handleDisplayed={this.handleDisplayed} loadLink = {loadLink} />
         <Footer />
       </div>
     );
