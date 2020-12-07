@@ -1,8 +1,14 @@
-import './styles/main.css';
-import Page from './containers/Page';
-import Footer from './components/Footer';
-import Header from './components/Header';
 import { Component } from 'react';
+import './styles/main.css';
+import {
+  HashRouter,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Header from './components/Header';
+import Page from './containers/Page';
+import WorkshopDetails from './components/WorkshopDetails'
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor() {
@@ -19,7 +25,8 @@ class App extends Component {
     fetch("http://localhost:3000/workshops")
     .then(response => response.json())
     .then(items => {this.setState({ workshops: items});
-    console.log(this.state.workshops)});
+    //just checking if fetch and filter work properly
+    console.log(this.state.workshops.filter(specif => specif.category === "frontend"))});
   }
 
   handleDisplayed = () => {
@@ -34,14 +41,23 @@ class App extends Component {
     const {workshops, displayed, loadLink, showMenu} = this.state;
     return (
       <div className='App'>
-        <Header />
-        <Page 
-        workshops = {workshops} 
-        displayed={displayed} 
-        handleDisplayed={this.handleDisplayed} 
-        loadLink = {loadLink} 
-        handleShowMenu={this.handleShowMenu} 
-        showMenu={showMenu}/>
+        <HashRouter basename='/'>
+          <Header />
+            <Switch>
+              <Route exact path="/">
+              <Page 
+                workshops = {workshops} 
+                displayed={displayed} 
+                handleDisplayed={this.handleDisplayed} 
+                loadLink = {loadLink} 
+                handleShowMenu={this.handleShowMenu} 
+                showMenu={showMenu}/>
+              </Route>
+              <Route exact path="/details/">
+                <WorkshopDetails />
+              </Route>
+            </Switch>
+        </HashRouter>
         <Footer />
       </div>
     );
