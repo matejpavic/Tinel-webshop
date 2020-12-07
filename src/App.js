@@ -11,6 +11,7 @@ class App extends Component {
       workshops: [],
       displayed: 9,
       loadLink: true,
+      showMenu: false,
     }
   }
 
@@ -25,12 +26,22 @@ class App extends Component {
     this.setState({displayed: this.state.workshops.length});
     this.setState({loadLink: false});
   } 
+
+  handleShowMenu = () => {
+    this.setState({showMenu: !this.state.showMenu});
+  } 
   render() {
-    const {workshops, displayed, loadLink} = this.state;
+    const {workshops, displayed, loadLink, showMenu} = this.state;
     return (
       <div className='App'>
         <Header />
-        <Page workshops = {workshops} displayed={displayed} handleDisplayed={this.handleDisplayed} loadLink = {loadLink} />
+        <Page 
+        workshops = {workshops} 
+        displayed={displayed} 
+        handleDisplayed={this.handleDisplayed} 
+        loadLink = {loadLink} 
+        handleShowMenu={this.handleShowMenu} 
+        showMenu={showMenu}/>
         <Footer />
       </div>
     );

@@ -30,12 +30,14 @@ body,
 .header {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   background-color: $primary-color;
   position: sticky;
   top: 0;
   width: 100%;
   height: 10vh;
+  z-index: 1;
 }
 
 .logo {
@@ -63,6 +65,12 @@ body,
   }
 }
 
+@mixin crazySmall {
+  @media (max-width: 285px) {
+    @content;
+  }
+}
+
 @mixin biggerScreen {
   @media (min-width: $bigScreen) {
     @content;
@@ -76,6 +84,10 @@ body,
   // background-color: blue;
   min-height: 80vh;
 
+  @include mobile {
+    margin-top: 0;
+  }
+
   .main {
     display: flex;
     flex-direction: column;
@@ -85,6 +97,7 @@ body,
   .listHeading {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     width: 100%;
     height: 3em;
     align-items: flex-start;
@@ -110,7 +123,6 @@ body,
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 0.5fr));
     max-width: 910px;
-    // background-color: rgb(207, 190, 223);
     width: 100%;
 
     .card {
@@ -119,10 +131,18 @@ body,
       align-items: center;
       width: 90%;
       height: 23em;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(128, 128, 128, 0.2);
+      box-shadow: 0 0 5px rgba(128, 128, 128, 0.1);
       border-radius: 5%;
       margin: 1%;
+      margin-bottom: 5%;
+
+      @include mobile {
+        flex-direction: row;
+        width: 90%;
+        height: 8em;
+        margin-bottom: 2%;
+      }
 
       &:hover {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -133,6 +153,14 @@ body,
         border-top-right-radius: inherit;
         width: 100%;
         height: 45%;
+
+        @include mobile {
+          width: 40%;
+          height: 100%;
+          border-top-left-radius: inherit;
+          border-bottom-left-radius: inherit;
+          border-top-right-radius: 0;
+        }
       }
 
       &__description {
@@ -142,9 +170,23 @@ body,
         height: 60%;
         width: 90%;
 
+        @include mobile {
+          display: flex;
+          align-items: flex-start;
+          margin-left: 4%;
+          margin-top: 0%;
+          height: 100%;
+          width: 60%;
+        }
+
         .date {
+          @include mobile {
+            text-align: start;
+            width: 100%;
+          }
+
           img {
-            height: 0.6em;
+            height: 0.5em;
           }
 
           .smallPush {
@@ -152,48 +194,94 @@ body,
           }
           span {
             text-align: center;
-            font-size: 0.7em;
+            font-size: 0.6em;
             font-weight: bold;
+
+            @include crazySmall {
+              font-size: 0.5em;
+            }
           }
         }
 
         .title {
           margin-top: 5%;
-          color: #0097cc;
+          height: 20%;
+          color: $secondary-color;
           font-weight: bold;
+
+          @include mobile {
+            text-align: start;
+            margin-top: 2%;
+            font-size: 0.9em;
+          }
         }
 
-        .price {
+        .priceAndCard {
           display: flex;
-          margin-top: auto;
+          flex-direction: column;
           margin-bottom: 0;
-          font-weight: bold;
-          justify-content: flex-start;
-          padding-left: 10%;
-          span {
-            font-size: 60%;
-            align-self: flex-end;
-          }
-        }
+          margin-top: auto;
+          width: 100%;
 
-        .addButton {
-          margin-top: 5%;
-          margin-bottom: 5%;
-          align-self: center;
-          background-color: $primary-color;
-          border-radius: 5px;
-          width: 60%;
-          height: 15%;
-          border: none;
-
-          &:hover {
-            background-color: lighten($color: $primary-color, $amount: 10%);
-            cursor: pointer;
+          @include mobile {
+            flex-direction: row;
           }
 
-          div {
-            font-size: 0.8em;
+          .price {
+            display: flex;
             font-weight: bold;
+            justify-content: flex-start;
+            padding-left: 10%;
+
+            @include mobile {
+              align-self: flex-end;
+              margin-bottom: 10%;
+            }
+
+            span {
+              font-size: 60%;
+              align-self: flex-end;
+            }
+          }
+
+          .addButton {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            align-self: center;
+            background-color: $primary-color;
+            border-radius: 5px;
+            width: 60%;
+            height: 2.5em;
+            border: none;
+
+            @include mobile {
+              width: fit-content;
+              height: fit-content;
+              margin-right: 10%;
+              margin-left: auto;
+
+              div {
+                display: none;
+              }
+            }
+
+            img {
+              display: none;
+
+              @include mobile {
+                display: flex;
+              }
+            }
+
+            &:hover {
+              background-color: lighten($color: $primary-color, $amount: 10%);
+              cursor: pointer;
+            }
+
+            div {
+              font-size: 0.8em;
+              font-weight: bold;
+            }
           }
         }
       }
@@ -207,6 +295,18 @@ body,
     padding-top: 0.5%;
     width: 20%;
     min-width: calc(0.2 * 750px);
+
+    .selected {
+      color: $secondary-color;
+    }
+
+    div:hover {
+      cursor: pointer;
+
+      span:hover {
+        color: $secondary-color;
+      }
+    }
 
     h6 {
       font-family: "Times New Roman", Times, serif;
@@ -243,7 +343,7 @@ body,
       cursor: pointer;
       background: white;
       border: none;
-      text-decoration-color: #0097cc;
+      text-decoration-color: $secondary-color;
       font-weight: bold;
     }
   }
@@ -260,12 +360,32 @@ body,
     }
     .dropdownMenu {
       display: flex;
-      background-color: red;
-      height: 5vh;
-      justify-content: center;
-      color: #0097cc;
-      div {
+      flex-direction: column;
+      height: 100%;
+      min-height: 3vh;
+      align-items: flex-start;
+      padding-left: 8%;
+      font-weight: bold;
+      margin-top: 2vh;
+
+      img {
+        cursor: pointer;
+      }
+      span {
         padding-left: 5px;
+        cursor: pointer;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+
+      &__selected {
+        color: $secondary-color;
+      }
+
+      &__closeButton {
+        transform: rotate(180deg);
       }
     }
     .workShopsList {
@@ -279,14 +399,17 @@ body,
 }
 
 .footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background-color: #f2f2f2;
   height: 5vh;
   img {
-    display: flex;
-    width: 10%;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 2vh;
+    width: 15%;
     padding-left: 5%;
+
+    @include mobile {
+      width: 30%;
+    }
   }
 }

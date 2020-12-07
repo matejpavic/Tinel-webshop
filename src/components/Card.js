@@ -1,5 +1,6 @@
 import Calendar from '../styles/assets/Calendar.svg';
 import Watch from '../styles/assets/Watch.svg';
+import ShoppingCart from '../styles/assets/ShoppingCart.svg';
 
 const Card = ({workshops, displayed}) => {
     return workshops.slice(0, displayed).map(workshop => (
@@ -13,8 +14,10 @@ const Card = ({workshops, displayed}) => {
             <div className='title'>
                 {workshop.title} 
             </div>
-            <div className='price'>{workshop.price}<span>EUR</span></div>
-            <button className='addButton'><div>Add to cart</div></button>
+            <div className='priceAndCard'>
+              <div className='price'>{workshop.price}<span>EUR</span></div>
+              <button className='addButton'><div>Add to cart</div><img src={ShoppingCart} alt='' /></button>
+            </div>
           </div>
         </div>
     ));

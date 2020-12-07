@@ -15,13 +15,7 @@ const LoadMore = ({handleDisplayed, loadLink}) => {
     }
     else if (!loadLink) {
         return (
-            <div className='loadMore'>
-            <p 
-            className='loadMore__link'
-            onClick={handleDisplayed}
-            >
-            </p>
-        </div>   
+            null
     );
     }
 }

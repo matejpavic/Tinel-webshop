@@ -2,11 +2,11 @@ import Filter from '../components/Filter';
 import DropdownMenu from '../components/DropdownMenu';
 import Main from '../components/Main';
 
-function Page({workshops, displayed, handleDisplayed, loadLink}) {
+function Page({workshops, displayed, handleDisplayed, loadLink, showMenu, handleShowMenu}) {
     return (
         <div className='containerPage' >
            <Filter />
-           <DropdownMenu />
+           <DropdownMenu showMenu={showMenu} handleShowMenu={handleShowMenu} />
            <Main workshops = {workshops} displayed = {displayed} handleDisplayed = {handleDisplayed} loadLink = {loadLink} />
         </div>
     );

@@ -1,5 +1,4 @@
 import React from 'react';
-import WorkShopsList from './WorkShopsList';
 
 const ListHeading = ({workshops, displayed}) => {
     return (

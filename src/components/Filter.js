@@ -9,7 +9,7 @@ const Filter = () => {
             <h6>Filter by category:</h6>
             <div className='pushRight'>
                 <div className='oneLine pushAll'>
-                    <span>All</span>
+                    <span className='selected'>All</span>
                 </div>
                 <div className='oneLine'>
                     <img src={DesignLogo} alt='logo'/><span>Design</span>
