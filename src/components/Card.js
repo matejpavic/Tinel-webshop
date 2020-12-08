@@ -14,7 +14,9 @@ const Card = ({workshops, displayed}) => {
               <img src={Watch} className='smallPush' alt=''/><span> {new Date(workshop.date).toLocaleTimeString().slice(0, 8).concat('h') }</span>
             </div>
             <div className='title'>
+              <Link to='/details' className='title__link'>
                 {workshop.title} 
+              </Link>
             </div>
             <div className='priceAndCard'>
               <div className='price'>{workshop.price}<span>EUR</span></div>

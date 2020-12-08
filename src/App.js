@@ -25,8 +25,7 @@ class App extends Component {
     fetch("http://localhost:3000/workshops")
     .then(response => response.json())
     .then(items => {this.setState({ workshops: items});
-    //just checking if fetch and filter work properly
-    console.log(this.state.workshops.filter(specif => specif.category === "frontend"))});
+    });
   }
 
   handleDisplayed = () => {
