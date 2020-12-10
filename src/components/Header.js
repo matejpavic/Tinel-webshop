@@ -1,11 +1,11 @@
 import Logo from './Logo';
 import Cart from './Cart';
 
-const Header = ({showCart, handleShowCart}) => {
+const Header = () => {
     return (
         <div className='header'>
             <Logo />
-            <Cart showCart={showCart} handleShowCart={handleShowCart}/>
+            <Cart />
         </div>
     );
 }

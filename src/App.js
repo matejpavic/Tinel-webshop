@@ -18,7 +18,6 @@ class App extends Component {
       displayed: 9,
       loadLink: true,
       showMenu: false,
-      showCart: false,
     }
   }
 
@@ -37,17 +36,13 @@ class App extends Component {
   handleShowMenu = () => {
     this.setState({showMenu: !this.state.showMenu});
   }
-  
-  handleShowCart = () => {
-    this.setState({showCart: !this.state.showCart});
-  } 
 
   render() {
-    const {workshops, displayed, loadLink, showMenu, showCart} = this.state;
+    const {workshops, displayed, loadLink, showMenu} = this.state;
     return (
       <div className='App'>
         <HashRouter basename='/'>
-          <Header showCart={showCart} handleShowCart={this.handleShowCart} />
+          <Header />
             <Switch>
               <Route exact path="/">
               <Page 
