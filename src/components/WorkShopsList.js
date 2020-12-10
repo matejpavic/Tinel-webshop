@@ -3,7 +3,19 @@ import Card from './Card';
 const WorkShopsList = ({workshops, displayed}) => {
     return (
         <div className='workShopsList'>
-            <Card workshops = {workshops} displayed = {displayed}/>
+            {
+                workshops.slice(0, displayed).map(workshop => {
+                    return (
+                        <Card 
+                            key={workshop.id}
+                            image={workshop.imageUrl}
+                            dateAndTime={workshop.date}
+                            title={workshop.title}
+                            price={workshop.price}
+                        />
+                    )
+                })
+            }
         </div>
     );
 }

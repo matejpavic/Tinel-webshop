@@ -602,6 +602,18 @@
   }
 }
 
+.expand {
+  position: absolute;
+  right: 0;
+  left: auto;
+  width: 20%;
+  min-width: 300px;
+  min-height: 100vh;
+  background-color: blue;
+  color: white;
+  z-index: 1;
+}
+
 .footer {
   display: flex;
   justify-content: flex-start;
