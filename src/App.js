@@ -5,6 +5,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 import Header from './components/Header';
 import Page from './containers/Page';
 import WorkshopDetails from './components/WorkshopDetails'
@@ -68,5 +70,13 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  showMenu: PropTypes.bool.isRequired,
+  handleShowMenu: PropTypes.func.isRequired,
+  displayed: PropTypes.number.isRequired,
+  loadLink: PropTypes.bool.isRequired,
+  showCart: PropTypes.bool.isRequired
+};
 
 export default App;
