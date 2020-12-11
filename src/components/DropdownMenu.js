@@ -1,7 +1,7 @@
 import DropdownArrow from '../styles/assets/DropdownArrow.svg';
 
 const DropdownMenu = ({showMenu, handleShowMenu}) => {
-       if (showMenu === false) {
+       if (!showMenu) {
         return (
             <div className='dropdownMenu'>
                 <div>
