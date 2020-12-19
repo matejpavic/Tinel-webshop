@@ -4,9 +4,9 @@ import ShoppingCart from '../styles/assets/ShoppingCart.svg';
 import {Link} from "react-router-dom";
 
 
-const Card = ({key, image, dateAndTime, title, price}) => {
+const Card = ({image, dateAndTime, title, price}) => {
     return (
-        <div key={key} className='card'>
+        <div className='card'>
           <Link className='card__img--link' to='/details'><img className='card__image' src={image} alt='workshop'/></Link>
           <div className='card__description'>
             <div className='date'>

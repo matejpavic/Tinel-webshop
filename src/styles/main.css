@@ -74,6 +74,10 @@ body ::-webkit-scrollbar,
   padding-right: 15%;
 }
 
+.cart img {
+  cursor: pointer;
+}
+
 .cart span {
   padding-left: 5%;
   white-space: nowrap;
@@ -842,15 +846,28 @@ body ::-webkit-scrollbar,
 }
 
 .expand {
-  position: absolute;
+  position: fixed;
   right: 0;
-  left: auto;
+  bottom: 0;
   width: 20%;
   min-width: 300px;
-  min-height: 100vh;
+  height: 100vh;
   background-color: blue;
   color: white;
-  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.expand span {
+  color: white;
+  z-index: 2;
+}
+
+.expand .exit {
+  margin-right: 2%;
+  margin-left: auto;
+  cursor: pointer;
 }
 
 .footer {

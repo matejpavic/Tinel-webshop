@@ -47,6 +47,10 @@
   align-items: center;
   padding-right: 15%;
 
+  img {
+    cursor: pointer;
+  }
+
   span {
     padding-left: 5%;
     white-space: nowrap;
@@ -603,15 +607,25 @@
 }
 
 .expand {
-  position: absolute;
+  position: fixed;
   right: 0;
-  left: auto;
+  bottom: 0;
   width: 20%;
   min-width: 300px;
-  min-height: 100vh;
+  height: 100vh;
   background-color: blue;
   color: white;
-  z-index: 1;
+  display: flex;
+
+  span {
+    color: white;
+    z-index: 2;
+  }
+  .exit {
+    margin-right: 2%;
+    margin-left: auto;
+    cursor: pointer;
+  }
 }
 
 .footer {

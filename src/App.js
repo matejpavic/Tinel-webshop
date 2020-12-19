@@ -5,7 +5,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import PropTypes from 'prop-types';
 
 import Header from './components/Header';
 import Page from './containers/Page';
@@ -21,6 +20,7 @@ class App extends Component {
       loadLink: true,
       showMenu: false,
       showCart: false,
+      workshopsInTheCart: 0,
     }
   }
 
@@ -45,11 +45,11 @@ class App extends Component {
   } 
 
   render() {
-    const {workshops, displayed, loadLink, showMenu, showCart} = this.state;
+    const {workshops, displayed, loadLink, showMenu, showCart, workshopsInTheCart} = this.state;
     return (
       <div className='App'>
         <HashRouter basename='/'>
-          <Header showCart={showCart} handleShowCart={this.handleShowCart} />
+          <Header showCart={showCart} handleShowCart={this.handleShowCart} workshopsInTheCart={workshopsInTheCart}/>
             <Switch>
               <Route exact path="/">
               <Page 
@@ -70,13 +70,5 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  showMenu: PropTypes.bool.isRequired,
-  handleShowMenu: PropTypes.func.isRequired,
-  displayed: PropTypes.number.isRequired,
-  loadLink: PropTypes.bool.isRequired,
-  showCart: PropTypes.bool.isRequired
-};
 
 export default App;
