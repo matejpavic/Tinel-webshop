@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import DropdownArrow from '../styles/assets/DropdownArrow.svg';
 
 const DropdownMenu = ({showMenu, handleShowMenu}) => {
@@ -39,5 +40,10 @@ const DropdownMenu = ({showMenu, handleShowMenu}) => {
     }
     
 }
+
+DropdownMenu.propTypes = {
+  showMenu: PropTypes.bool.isRequired,
+  handleShowMenu: PropTypes.func.isRequired,
+};
 
 export default DropdownMenu;
